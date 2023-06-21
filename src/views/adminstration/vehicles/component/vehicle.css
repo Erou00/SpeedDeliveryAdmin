@@ -1,0 +1,186 @@
+
+
+input[type=search] {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color:#efefef;
+}
+
+#vehicule-filter select {
+    border: none;
+    color: #3b3b3b;
+    background-color: #efefef;
+    padding: 8px;
+    height: 40px;
+    font-weight: 200;
+    outline: none;
+    box-shadow: none !important;
+    font-weight: bold;
+}
+
+
+.box{
+    width: 96%;
+    height: 250px;
+    position: relative;
+    margin-bottom: 40px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+
+}
+.box  .box-head{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 12px  12px 12px 0 ;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 58%,rgb(49 38 81) 42%);
+}
+
+.box  .box-head .info{
+    padding: 1rem;
+}
+
+.box  .box-head .info h3{
+    color: #000000;
+}
+
+
+.box  .box-head .info p{
+    font-size: 20px;
+
+}
+.box  .box-head .info p.v-info{
+    font-size: 12px;
+                        font-weight: bold;
+                        /* border: 3px solid #000; */
+                        padding: 1px 4px;
+                        border-radius: 5px;
+                        /* text-align: center; */
+                        background-color: #fff;
+                        margin-top: -11px;
+                        color: rgb(0, 0, 0);
+                        width: 100%;
+}
+.box  .box-head .info p.v-assurance{
+    font-size: 14px;
+                        font-weight: bold;
+                        /* border: 3px solid #000; */
+                        padding: 1px 4px;
+                        border-radius: 5px;
+                        /* text-align: center; */
+                        background-color: #fff;
+                        margin-top: -11px;
+                        color: rgb(0, 0, 0);
+                        width: 100%;
+}
+.box  .box-head div h2.etat{
+   text-align: end
+}
+.box  .box-head .img-area{
+    position: relative;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* float: right; */
+    z-index: 1;
+    top: 4px;
+    display: flex;
+    justify-content: center;
+    /* background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 40%,rgb(49 38 81) 60%); */
+}
+.box  .box-head .img-area img{
+    /* margin-left: 8px; */
+}
+
+.box  .box-head h4{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 1px 10px;
+    font-size: .8em;
+    margin-top: 12px;
+    border-radius: 5px 0 0 5px;
+
+}
+.box  .box-head h3{
+  color: black;
+}
+ .box  .box-end{
+    position: absolute;
+    height: 45%;
+    width: 100%;
+    top: 88%;
+    /* background-color: black; */
+    border-radius: 0 0 12px 12px;
+    justify-content: space-between;
+    padding: 8px
+}
+/*
+
+.box  .box-end .v-footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+} */
+
+
+/* .box  .box-end .v-footer a{
+
+}
+.box  .box-end .v-footer div{
+    position: absolute;
+    right: 0;
+} */
+
+.box .box-end .box-button{
+    background-color: #3960cf;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+
+.box .box-end .box-button:hover{
+    background-color: #6283dd;
+}
+
+.box .box-end .box-button i{
+    color: #fff;
+}
+
+.box .box-end .box-button-delete{
+    background-color: #ff0000;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+}
+.box .box-end .box-button-delete:hover{
+    background-color: #fd4242;
+}
+.box .box-end .box-button-delete i{
+    color: #fff;
+
+}
+
+
+label{
+    font-weight: bold;
+        color: black;
+   }
+    select{
+        height: 56px;
+        font-weight: bold;
+        color: black;
+        background: white;
+    }
+
+    .form-control:read-only {
+    background-color: #fff;
+    opacity: 1;
+    font-weight: bold;
+
+}
