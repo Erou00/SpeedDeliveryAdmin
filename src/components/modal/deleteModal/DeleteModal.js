@@ -23,7 +23,7 @@ const DeleteModal= ({item,show,setShow,deleteFunction}) => {
           </div>
         </Modal.Header>
         <Modal.Body className="modal-body text-center">
-            <p>Voulez-vous vraiment supprimer  <strong>{item ? item.name : ''}</strong>? Ce processus ne peut pas être annulé.</p>
+            <p>Voulez-vous vraiment supprimer ?</p>
         </Modal.Body>
         <Modal.Footer className="modal-footer justify-content-end">
         

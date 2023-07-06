@@ -11106,8 +11106,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-    background-color: #312651;
-    background-image: linear-gradient(180deg, #312651 10%, #224abe 100%);
+    background-color: #000000;
+    /* background-image: linear-gradient(180deg, #312651 10%, #224abe 100%); */
     background-size: cover
 }
 
@@ -12109,8 +12109,8 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url(../img/speeddelivery.png);
-    background-position: center;
+    background: url(../assets/img/hero/h1_hero.jpg);
+    background-position: right;
     background-size: cover
 }
 
@@ -12615,3 +12615,5 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
+
+

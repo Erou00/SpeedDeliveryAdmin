@@ -1,0 +1,36 @@
+.notification {
+    
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60%;
+    padding: 4px 20px;
+    color: #fff;
+    background-color: #00000090;
+    border: 1px solid #00000090;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .notification:hover {
+    background-color: #000000;
+    border: 1px solid #00000090;
+  }
+  .notification-enter {
+    opacity: 0;
+  }
+  
+  .notification-enter-active {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .notification-exit {
+    opacity: 1;
+  }
+  
+  .notification-exit-active {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }

@@ -2,6 +2,9 @@
     border-radius: 10px !important;
 }
 
+.border-new {
+    border-left: 5px solid  #71747f!important;
+}
 .border-info {
     border-left: 5px solid  #2642a4!important;
 }
@@ -30,26 +33,15 @@
     box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
 }
 
-.bg-gradient-scooter-success {
-    background: #17ead9;
-    background: -webkit-linear-gradient( 
-45deg
- , #17ead9, #15ca20)!important;
-    background: linear-gradient( 
-45deg
- , #17ead9, #15ca20)!important;
-}
+
 .widgets-icons-2 {
-    /* width: 56px; */
-    /* height: 56px; */
-    display: flex;
-    padding: 4px;
-    align-items: center;
-    justify-content: center;
+    width: 140px; 
+    padding: 2px;
     background-color: #ededed;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
-    /* border-radius: 10px; */
+    text-align: center;
+    border-radius: 10px;
 }
 .rounded-circle {
     border-radius: 50%!important;
@@ -60,32 +52,16 @@
 .ms-auto {
     margin-left: auto!important;
 }
-.bg-gradient-bloody {
-    background: #f54ea2;
-    background: -webkit-linear-gradient( 
-45deg
- , #f54ea2, #ff7676)!important;
-    background: linear-gradient( 
-45deg
- , #f54ea2, #ff7676)!important;
+.bg-new{
+   background-color: #71747f;
 }
-
-.bg-gradient-ohhappiness {
-    background: #00b09b;
-    background: -webkit-linear-gradient( 
-45deg
- , #00b09b, #96c93d)!important;
-    background: linear-gradient( 
-45deg
- , #00b09b, #96c93d)!important;
+.bg-encours{
+    background-color: #2642a4;
 }
-
-.bg-gradient-blooker {
-    background: #ffdf40;
-    background: -webkit-linear-gradient( 
-45deg
- , #ffdf40, #ff8359)!important;
-    background: linear-gradient( 
-45deg
- , #ffdf40, #ff8359)!important;
+.bg-livree{
+   
+    background-color: #15ca20;
+}
+.bg-retour{
+    background-color: #fd3550;
 }

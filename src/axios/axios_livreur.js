@@ -66,3 +66,51 @@ export const add_livreur = async data => {
       }
 
   }
+
+
+  export const get_livreur_affect = async(firstname,lastname,currentPage,livreursPerPage) => {
+    try{
+  
+        const baseUrl = "/private/livreurs";
+        let url = '';
+        url = `${baseUrl}/all-livreurs`
+        const result = await ApiManager(url, {
+          method: 'GET',
+          //  withCredentials:true,
+          headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin':'*',
+            'Authorization': `Bearer ${localStorage.getItem('ACCESS_TOKEN')}`
+          },
+
+        });
+        return result;
+      } catch (error) {
+        return error.response.data;
+      }
+
+  }
+
+
+  export const get_livreur_details = async(id) => {
+    try{
+  
+        const baseUrl = "/private/livreurs";
+        let url = '';
+        url = `${baseUrl}/details?id=${id}`
+        const result = await ApiManager(url, {
+          method: 'GET',
+          //  withCredentials:true,
+          headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin':'*',
+            'Authorization': `Bearer ${localStorage.getItem('ACCESS_TOKEN')}`
+          },
+
+        });
+        return result;
+      } catch (error) {
+        return error.response.data;
+      }
+
+  }

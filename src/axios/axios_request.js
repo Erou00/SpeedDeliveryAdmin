@@ -128,3 +128,23 @@ export const user_login = async data => {
       return error.response.data;
     }
   };
+
+
+  export const get_all_categories = async () => {
+    try {
+      const url = "/private/categories/all-categories";
+      const token = localStorage.getItem('ACCESS_TOKEN');
+      const result = await ApiManager(url, {
+        method: 'GET',
+        //  withCredentials:true,
+        headers: {
+          'content-type': 'application/json',
+          'Access-Control-Allow-Origin':'*',
+          'Authorization': `Bearer ${token}`
+        },
+      });
+      return result;
+    } catch (error) {
+      return error.response.data;
+    }
+  };

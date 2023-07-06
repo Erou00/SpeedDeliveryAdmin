@@ -73,18 +73,17 @@ const Login = () => {
                                           </div>
                                           <div className="form-group">
                                               <input ref={passwordRef} type="password" className="form-control form-control-user"
-                                                  id="exampleInputPassword" placeholder="Password"/>
+                                                  id="exampleInputPassword" placeholder="Mot de passe"/>
                                           </div>
                                           <div className="form-group">
                                               <div className="custom-control custom-checkbox small">
                                                   <input type="checkbox" className="custom-control-input" 
                                                   id="customCheck"/>
-                                                  <label className="custom-control-label" forhtml="customCheck">Remember
-                                                      Me</label>
+                                                 
                                               </div>
                                           </div>
                                           <button className="btn btn-primary btn-user btn-block">
-                                              Login
+                                              Se connecter
                                           </button>
                                           <hr/>
                                         

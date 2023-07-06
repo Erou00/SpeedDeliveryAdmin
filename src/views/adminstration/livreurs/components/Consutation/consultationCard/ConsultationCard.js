@@ -3,17 +3,28 @@ import './consultationCard.css'
 import OrderCard from '../../../../../../components/orderCard/OrderCard'
 import LivreurCommandes from '../livreurCommandes/LivreurCommandes'
 import { useParams } from 'react-router-dom'
-import { get_livreur_by_id } from '../../../../../../axios/axios_livreur'
+import { get_livreur_by_id, get_livreur_details } from '../../../../../../axios/axios_livreur'
 
 const ConsultationCard = () => {
 
     let {id} = useParams();
    
     const [livreur,setLivreur] = useState({})
+    const [details,setDetails] = useState({})
 
     const getLivreur = async() => {
         await get_livreur_by_id(id).then(({data})=>{
             console.log(data);
+            setLivreur(data.data)
+        }).catch((err)=>{
+            console.log(err);
+        })
+    }
+
+    const getLivreurDetails = async () => {
+        await get_livreur_details(id).then(({data})=>{
+            console.log(data);
+            setDetails(data.data)
         }).catch((err)=>{
             console.log(err);
         })
@@ -21,10 +32,10 @@ const ConsultationCard = () => {
 
     useEffect(()=>{
        getLivreur()
+       getLivreurDetails()
     },[])
 
   return (
-    <div className="content">
     <div className="container">
         <div className="row">
             <div className="col-sm-12">
@@ -71,39 +82,54 @@ const ConsultationCard = () => {
             <div className="col-xl-8">
                 <div className="row">
                     <div className="col-sm-4">
+
                         <div className="card-box tilebox-one"><i className="icon-layers float-right text-light"></i>
                             <h6 className="text-light text-uppercase mt-0">Commandes</h6>
-                            <h4 className="" data-plugin="counterup">1,587</h4>
+                            <h4 className="" data-plugin="counterup">{details.commandeAffected}</h4>
                         </div>
                     </div>
                     
                     <div className="col-sm-4">
                         <div className="card-box tilebox-one"><i className="icon-paypal float-right text-light"></i>
-                            <h6 className="text-light text-uppercase mt-0">Revenu</h6>
-                            <h4 className="">MAD <span data-plugin="counterup">46,782</span></h4>
+                            <h6 className="text-light text-uppercase mt-0">En cours</h6>
+                            <h4 className=""><span data-plugin="counterup">{details.commandeEnCours}</span></h4>
+                        </div>
+                    </div>
+
+                    <div className="col-sm-4">
+                        <div className="card-box tilebox-one"><i className="icon-paypal float-right text-light"></i>
+                            <h6 className="text-light text-uppercase mt-0">En cours</h6>
+                            <h4 className=""><span data-plugin="counterup">{details.commandeLivree}</span></h4>
+                        </div>
+                    </div>
+                    <div className="col-sm-4">
+                        <div className="card-box tilebox-one"><i className="icon-paypal float-right text-light"></i>
+                            <h6 className="text-light text-uppercase mt-0">En cours</h6>
+                            <h4 className=""><span data-plugin="counterup">{details.commandeRetour}</span></h4>
                         </div>
                     </div>
                     
                     <div className="col-sm-4">
                         <div className="card-box tilebox-one"><i className="icon-rocket float-right text-light"></i>
                             <h6 className="text-light text-uppercase mt-0">Reste</h6>
-                            <h4 className="">MAD <span data-plugin="counterup">1,890</span></h4>
+                            <h4 className="">MAD <span data-plugin="counterup">{livreur.amount}</span></h4>
                         </div>
                     </div>
                     
                 </div>
-                <div className="card-box">
-                    <h4 className="text-light mt-0 mb-3">Commnades</h4>
-                    <hr/>
-                    <LivreurCommandes commandes={livreur.commandes} />
-                </div>
+            
                
             </div>
-=        </div>
+        </div>
+
+        <div className='row'>
+       
+       <LivreurCommandes id={id} />
+         
+        </div>
         
     </div>
   
-</div>
   )
 }
 

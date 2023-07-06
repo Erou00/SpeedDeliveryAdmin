@@ -29,7 +29,8 @@ const ShowImage = ({width,height,imageName,optionalImage,nClass}) => {
 
   return (
     <>
-        <img src={defaultImage} className={nClass} alt="Displayed Image" width={width} height={height} />
+        <img src={defaultImage} className={nClass} alt="Displayed Image" width={width} height={height} 
+        style={{ imageRendering: 'pixelated'}}/>
     </>
   )
 }
