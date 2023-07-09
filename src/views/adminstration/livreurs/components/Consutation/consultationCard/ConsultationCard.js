@@ -98,13 +98,13 @@ const ConsultationCard = () => {
 
                     <div className="col-sm-4">
                         <div className="card-box tilebox-one"><i className="icon-paypal float-right text-light"></i>
-                            <h6 className="text-light text-uppercase mt-0">En cours</h6>
+                            <h6 className="text-light text-uppercase mt-0">Livree</h6>
                             <h4 className=""><span data-plugin="counterup">{details.commandeLivree}</span></h4>
                         </div>
                     </div>
                     <div className="col-sm-4">
                         <div className="card-box tilebox-one"><i className="icon-paypal float-right text-light"></i>
-                            <h6 className="text-light text-uppercase mt-0">En cours</h6>
+                            <h6 className="text-light text-uppercase mt-0">Retour</h6>
                             <h4 className=""><span data-plugin="counterup">{details.commandeRetour}</span></h4>
                         </div>
                     </div>

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { first_object_value } from '../../../../utils/functions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { add_assurance, get_assurance_by_id, update_assurance } from '../../../../axios/axios_assurance';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -78,9 +79,11 @@ const AssuranceForm = () => {
   return (
     <div className="container-fluid">
 
-        <PageTitle title={assurance.id ? `Modifier la assurance: ${assurance.name}` : 'Ajouter Nouvelle Assurance'} />
-        <div className="card shadow mb-4 p-4">
-
+<PageTitle createBtn={false} title={'Assurances'}>
+    <li aria-current="page" className="breadcrumb-item active text-uppercase">{   (id)  ?  'Modifier' : 'Ajouter'}</li>
+    </PageTitle>
+    <DefaultCard title={ (id)  ?  'Modifier l\'assurance '+assurance.name   : `Ajouter nouveau Assurance`}
+      createBtn={false}>
         <Formik
            enableReinitialize initialStatus={assurance}
             initialValues={{
@@ -124,7 +127,8 @@ const AssuranceForm = () => {
             </form>
          )}
         </Formik>
-        </div>
+        
+        </DefaultCard>
     </div>
   )
 }

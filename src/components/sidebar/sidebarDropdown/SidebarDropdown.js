@@ -9,7 +9,8 @@ function SidebarDropdown() {
             <i className="fas fa-fw fa-cog"></i>
             <span>Parametrage</span>
         </a>
-        <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" className="collapse in" aria-labelledby="headingTwo" 
+          data-parent="#accordionSidebar" aria-expanded="true">
             <div className="bg-white py-2 collapse-inner rounded">
                 <h6 className="collapse-header">Composants personnalisés:</h6>
                 <Link className="collapse-item" to="parametrage/categories"><strong>Categories</strong></Link>
@@ -19,6 +20,8 @@ function SidebarDropdown() {
                 <Link className="collapse-item" to="parametrage/modeles"><strong>Modeles</strong></Link>
             </div>
         </div>
+
+        
     </li>
   )
 }

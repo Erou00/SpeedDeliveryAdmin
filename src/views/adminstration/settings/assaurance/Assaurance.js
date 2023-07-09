@@ -5,6 +5,7 @@ import Pagination from '../../../../utils/Pagination';
 import DeleteModal from '../../../../components/modal/deleteModal/DeleteModal';
 import { toast } from 'react-toastify';
 import { delete_assurance_by_id, get_assurances } from '../../../../axios/axios_assurance';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 const Assaurance = ()=> {
   const [assurances,setAssurances] = useState([]);
@@ -74,21 +75,9 @@ const Assaurance = ()=> {
     return (
     <div className="container-fluid">
        <DeleteModal show={show} setShow={setShow} item={selectedassurance}  deleteFunction={deleteassurance}/>
-      <PageTitle title={'Assurances'}>
-          <Link to="create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-              <i className="fas fa-plus-circle fa-sm text-white mr-2"></i> 
-              <strong>Ajouter</strong> 
-          </Link>
-      </PageTitle>
-     
-      <div className="card shadow mb-4">
-                          <div className="card-header py-3">
-                              <h6 className="m-0 font-weight-bold text-primary">
-                                 Nombre de résultats : ({totalAmountOfAssurances})</h6>
-                          </div>
-                          <div className="card-body">
-                              <div className="table-responsive">
-
+       <PageTitle createBtn={true} title={'Assurances'}></PageTitle>
+            <DefaultCard title={`Nombre de résultats : (${totalAmountOfAssurances})`}
+              createBtn={true}>
 
                               <div className='col-6 p-0 mb-2'>
                                 <div className='d-flex'>
@@ -96,7 +85,7 @@ const Assaurance = ()=> {
                                     type="search" placeholder='Search'
                                     aria-labelledby='Search' onChange={e => setSearch(e.target.value)} />
 
-                                    <button className='btn btn-outline-success ml-2' onClick={searchHandleChange}>
+                                    <button className='btn btn-success ml-2 px-4' onClick={searchHandleChange}>
                                         Search
                                     </button>
                                 </div>
@@ -151,9 +140,10 @@ const Assaurance = ()=> {
                                       
                                   </table>
                                   
-                              </div>
+                              
                              
-   
+                                  <div className='row justify-content-centre mb-3'>
+
                               { totalPages > 1 && 
                                   <Pagination currentPage={currentPage} 
                                         totalPages={totalPages}
@@ -161,9 +151,9 @@ const Assaurance = ()=> {
                               } 
 
                            
-                          </div>
-      </div>
+</div>
 
+</DefaultCard>
 </div>
   )
 }

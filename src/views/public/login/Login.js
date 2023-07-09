@@ -1,7 +1,8 @@
 import React, { createRef, useState } from 'react'
 import { useStateContext } from '../../../context/ContextProvider';
 import {user_login} from '../../../axios/axios_request';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
 
   const { token,setToken } = useStateContext()
   const [message, setMessage] = useState(null)
-
+  const navigate = useNavigate();
   const onSubmit = (ev) => {
     ev.preventDefault()
 
@@ -27,8 +28,16 @@ const Login = () => {
           .then((data) => {
             if (data.status === 401) {
               setMessage(data.message)
+              return;
             }
-            setToken(data.data.accessToken)
+            let decodeToken = jwtDecode(data.data.accessToken)
+            if (decodeToken.scope === "ROLE_ADMIN" ) {
+               setToken(data.data.accessToken)
+               navigate("/dashboard");
+            }else{
+              setMessage("Bad credential")
+            }
+           
           }).catch(err => {
             console.log(err);
             const response = err.response;

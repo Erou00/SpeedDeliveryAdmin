@@ -5,6 +5,7 @@ import { delete_categorie_by_id, get_categories } from '../../../../axios/axios_
 import Pagination from '../../../../utils/Pagination';
 import DeleteModal from '../../../../components/modal/deleteModal/DeleteModal';
 import { toast } from 'react-toastify';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 const Categories = ()=> {
   const [categories,setCategories] = useState([]);
@@ -73,96 +74,83 @@ const Categories = ()=> {
     return (
     <div className="container-fluid">
        <DeleteModal show={show} setShow={setShow} item={selectedCategorie}  deleteFunction={deleteCategorie}/>
-      <PageTitle title={'Categories'}>
-          <Link to="create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-              <i className="fas fa-plus-circle fa-sm text-white mr-2"></i> 
-              <strong>Ajouter</strong> 
-          </Link>
-      </PageTitle>
-      <div className="card shadow mb-4">
-      <div className="card shadow mb-4">
-                          <div className="card-header py-3">
-                              <h6 className="m-0 font-weight-bold text-primary">
-                                 Nombre de résultats : ({totalAmountOfCategories})</h6>
-                          </div>
-                          <div className="card-body">
-                              <div className="table-responsive">
+       <PageTitle createBtn={true} title={'Categories'}></PageTitle>
+            <DefaultCard title={`Nombre de résultats : (${totalAmountOfCategories})`}
+              createBtn={true}>
+      
+            
 
+                    <div className='col-6 p-0'>
+                      <div className='d-flex'>
+                          <input className='form-control'
+                          type="search" placeholder='Search'
+                          aria-labelledby='Search' onChange={e => setSearch(e.target.value)} />
 
-                              <div className='col-6 p-0 mb-2'>
-                                <div className='d-flex'>
-                                    <input className='form-control'
-                                    type="search" placeholder='Search'
-                                    aria-labelledby='Search' onChange={e => setSearch(e.target.value)} />
+                          <button className='btn btn-success ml-2  px-4' onClick={searchHandleChange}>Search</button>
+                      </div>
+                  </div>
 
-                                    <button className='btn btn-outline-success ml-2' onClick={searchHandleChange}>
-                                        Search
-                                    </button>
-                                </div>
-                            </div>
+                    <p className='mb-0'> {indexOfFirstCategorie + 1} à {lastItem} sur
+                          {totalAmountOfCategories} articles </p>
+                        <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Nom</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            
+                            
+                            {totalAmountOfCategories > 0 ?
+                              <tbody>
+                              {
+                                categories.map((categorie,index) => (
+                                  <tr key={categorie.id}>
+                                      <td>{index + 1}</td>
+                                      <td>{categorie.name}</td>
+                                      <td>
+                                        <button className='btn btn-sm btn-danger' onClick={()=>{
+                                          setShow(!show)
+                                          setSelectedCategorie(categorie)
+                                          }}>
+                                          <i className='fas fa-trash'></i>
+                                        </button>
+                                        <Link className='btn btn-sm btn-warning ml-3'
+                                            to={`${categorie.id}`}>
+                                            <i className='fas fa-edit'></i>
+                                        </Link>
+                                      </td>
+                                  </tr>
+                                ))
+                              }
+                                </tbody> 
+                              :
+                              
+                              <tbody className='m-5'>
+                                
+                                  <tr>
+                                    <td colSpan={3} className='mt-3'>
+                                        Nous n'arrivons pas à trouver ce que vous cherchez !!
+                                    </td>
+                                  </tr>
+                              </tbody>
+                              }
+                            
+                        </table>
+                        
+                        <div className='row justify-content-centre mb-3'>
 
-                              <p className='mb-0'> {indexOfFirstCategorie + 1} à {lastItem} sur
-                                    {totalAmountOfCategories} articles </p>
-                                  <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
-                                      <thead>
-                                          <tr>
-                                              <th></th>
-                                              <th>Nom</th>
-                                              <th>Actions</th>
-                                          </tr>
-                                      </thead>
-                                      
-                                      
-                                      {totalAmountOfCategories > 0 ?
-                                        <tbody>
-                                        {
-                                          categories.map((categorie,index) => (
-                                            <tr key={categorie.id}>
-                                                <td>{index + 1}</td>
-                                                <td>{categorie.name}</td>
-                                                <td>
-                                                  <button className='btn btn-sm btn-danger' onClick={()=>{
-                                                    setShow(!show)
-                                                    setSelectedCategorie(categorie)
-                                                    }}>
-                                                    <i className='fas fa-trash'></i>
-                                                  </button>
-                                                  <Link className='btn btn-sm btn-warning ml-3'
-                                                     to={`${categorie.id}`}>
-                                                      <i className='fas fa-edit'></i>
-                                                  </Link>
-                                                </td>
-                                            </tr>
-                                          ))
-                                        }
-                                         </tbody> 
-                                       :
-                                       
-                                        <tbody className='m-5'>
-                                         
-                                            <tr>
-                                              <td colSpan={3} className='mt-3'>
-                                                  Nous n'arrivons pas à trouver ce que vous cherchez !!
-                                              </td>
-                                            </tr>
-                                        </tbody>
-                                        }
-                                      
-                                  </table>
-                                  
-                              </div>
-                             
-   
-                              { totalPages > 1 && 
-                                  <Pagination currentPage={currentPage} 
-                                        totalPages={totalPages}
-                                        paginate={paginate} />    
-                              } 
+                          { totalPages > 1 && 
+                              <Pagination currentPage={currentPage} 
+                                    totalPages={totalPages}
+                                    paginate={paginate} />    
+                          } 
 
-                           
-                          </div>
-              </div>
-      </div>
+                        </div>
+                
+             
+      </DefaultCard>
 </div>
   )
 }

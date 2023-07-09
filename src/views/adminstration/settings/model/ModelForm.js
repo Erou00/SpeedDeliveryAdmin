@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { add_model, get_models_by_id, update_model } from '../../../../axios/axios_model';
 import ErrorMsg from '../../../../components/error/ErrorMsg';
 import { get_all_marks} from '../../../../axios/axios_mark';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -95,9 +96,11 @@ const ModelForm = () => {
   return (
     <div className="container-fluid">
 
-        <PageTitle title={model.id ? `Modifier la marque: ${model.name}` : 'Ajouter Nouvelle Modele'} />
-        <div className="card shadow mb-4 p-4">
-
+<PageTitle createBtn={false} title={'Modeles'}>
+    <li aria-current="page" className="breadcrumb-item active text-uppercase">{ (id)  ?  'Modifier' : 'Ajouter'}</li>
+    </PageTitle>
+    <DefaultCard title={ (id)  ?  'Modifier la modele '+model.name   : `Ajouter nouvelle modele`}
+      createBtn={false}>
         <Formik
            enableReinitialize initialStatus={model}
             initialValues={{
@@ -158,7 +161,7 @@ const ModelForm = () => {
                 
          )}
         </Formik>
-        </div>
+    </DefaultCard>
     </div>
   )
 }

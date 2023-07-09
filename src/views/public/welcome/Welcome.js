@@ -44,7 +44,7 @@ function Welcome() {
                     <div className="row align-items-center">
                         <div className="col-xl-4 col-lg-4">
                             <div className="logo">
-                                <a href="index.html" className='nav-link' style={{
+                                <a href="/" className='nav-link' style={{
                                 
                                     color: 'white',
                                     fontSize: '32px',
@@ -336,7 +336,18 @@ function Welcome() {
                     <div className="col-xl-3 col-lg-4 col-md-5 col-sm-6">
                         <div className="single-footer-caption mb-50">
                             <div className="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""/></a>
+                                
+                                <a href="/" className='nav-link m-0 p-0' style={{
+                                
+                                        color: 'white',
+                                        fontSize: '24px',
+                                        fontWeight: 'bolder',
+                                
+                                    }}>
+                                    SPEED <span style={{color:'#f15f22'}}>DELIVERY</span> 
+                                </a>
+                                            
+                             
                             </div>
                             <div className="footer-tittle">
                                 <div className="footer-pera">

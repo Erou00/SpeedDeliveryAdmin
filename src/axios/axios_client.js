@@ -8,7 +8,7 @@ import ApiManager from "./ApiManager";
   
         const baseUrl = "/private/clients";
         let url = '';
-        url = `${baseUrl}?firstname=${firstname}&lastname=&page=${currentPage-1}&size=${livreursPerPage}`
+        url = `${baseUrl}?firstname=${firstname}&lastname=${lastname}&page=${currentPage-1}&size=${livreursPerPage}`
         const result = await ApiManager(url, {
           method: 'GET',
           //  withCredentials:true,

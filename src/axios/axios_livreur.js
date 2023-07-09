@@ -25,7 +25,7 @@ export const add_livreur = async data => {
   
         const baseUrl = "/private/livreurs";
         let url = '';
-        url = `${baseUrl}?firstname=${firstname}&lastname=&page=${currentPage-1}&size=${livreursPerPage}`
+        url = `${baseUrl}?firstname=${firstname}&lastname=${lastname}&page=${currentPage-1}&size=${livreursPerPage}`
         const result = await ApiManager(url, {
           method: 'GET',
           //  withCredentials:true,

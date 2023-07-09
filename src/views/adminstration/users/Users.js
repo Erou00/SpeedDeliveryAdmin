@@ -56,13 +56,13 @@ const Users = () => {
         <div className='container'>
         <div className='row mb-3' id='vehicule-filter'>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <input className='form-control' type="text"  placeholder='chercher par nom' onChange={e => {}} />
+                <input className='form-control' type="text"  placeholder='chercher par nom' onChange={e => {setFirstname(e.target.value)}} />
               </div>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <input className='form-control' type="text"  placeholder='chercher par prenom' onChange={e => {}} />
+                <input className='form-control' type="text"  placeholder='chercher par prenom' onChange={e => {setLastname(e.target.value)}} />
               </div>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <button className='btn btn-primary  w-100'>Chercher</button>
+                <button className='btn btn-primary  w-100' onClick={fetchData}>Chercher</button>
               </div>
           </div>
         </div>

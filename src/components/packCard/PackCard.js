@@ -28,7 +28,7 @@ const PackCard = ({item,col}) => {
                        {item.name}
                     </div>
                     <div className="card-text">
-                         {item.designation.substring(0,100)}
+                         { item.designation.length > 80 ?  item.designation.substring(0,80) +'...' : item.designation }
                     </div>
                     <div className="card-text">
                         <p>
@@ -39,7 +39,7 @@ const PackCard = ({item,col}) => {
 
                     </div>
                     < div className='card-button'>
-                    <Link to={`${item.id}/consultation`} className="btn btn-sm btn-primary mr-2"> <i className='fa fa-eye'></i></Link>
+                    <Link to={`/dashboard/colis/${item.id}/consultation`} className="btn btn-sm btn-primary mr-2"> <i className='fa fa-eye'></i></Link>
                      <button className='btn btn-sm btn-danger'><i className='fa fa-trash'></i></button>
                     </div>
                     

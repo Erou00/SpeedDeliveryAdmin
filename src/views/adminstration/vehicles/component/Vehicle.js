@@ -58,7 +58,7 @@ const Vehicle = ({vehicle,handeDelete,setSelectedvehicle}) => {
                      <div>
 
                       <div className="img-area">
-                        <ShowImage imageName={vehicle.mark.logo}  width={250} height={140}/>
+                        <ShowImage imageName={vehicle.mark.logo}  width={150} height={140}/>
                       </div>
                       <h4 className="text-center"><strong>Caribirant : {vehicle.type}</strong></h4>
 

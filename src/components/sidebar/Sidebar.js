@@ -14,7 +14,19 @@ function Sidebar() {
                 <div className="sidebar-brand-icon rotate-n-15">
                     {/* <i className="fas fa-laugh-wink"></i> */}
                 </div>
-                <div className="sidebar-brand-text mx-3">SPEED DELIVERY</div>
+                <div className="sidebar-brand-text">
+                      
+                <p  className='nav-link m-0 p-0' style={{
+                                
+                                color: 'white',
+                                fontSize: '20px',
+                                fontWeight: 'bolder',
+                        
+                            }}>
+                            SPEED <span style={{color:'#f15f22'}}>DELIVERY</span> 
+                        </p>
+                                
+                </div>
             </a>
 
             <hr className="sidebar-divider my-0"/>

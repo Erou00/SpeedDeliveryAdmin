@@ -8,8 +8,8 @@ import Pagination from '../../../utils/Pagination'
 const Livreurs = () => {
 
   const [data,setData]=useState([])
-  const [firstname,setFirstname] = useState(null)
-  const [lastname,setLastname] = useState(null)
+  const [firstname,setFirstname] = useState('')
+  const [lastname,setLastname] = useState('')
 
   const [searchValue,setSearchValue] = useState('')
 
@@ -55,13 +55,13 @@ const Livreurs = () => {
         <div className='container'>
         <div className='row mb-3' id='vehicule-filter'>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <input className='form-control' type="text"  placeholder='chercher par nom' onChange={e => {}} />
+                <input className='form-control' type="text"  placeholder='chercher par nom' onChange={e => {setFirstname(e.target.value)}} />
               </div>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <input className='form-control' type="text"  placeholder='chercher par prenom' onChange={e => {}} />
+                <input className='form-control' type="text"  placeholder='chercher par prenom' onChange={e => {setLastname(e.target.value)}} />
               </div>
               <div className='col-lg-4 col-md-6 col-sm-12  mb-2'>
-                <button className='btn btn-primary  w-100'>Chercher</button>
+                <button className='btn btn-primary  w-100' onClick={fetchData}>Chercher</button>
               </div>
           </div>
         </div>

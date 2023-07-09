@@ -11,40 +11,37 @@ const LivreurCard = ({item}) => {
             <div className="card livreur-card">
 
                 <div className="card-body">
-                    <div className="bg-header">
-                    </div>
                     <div className="d-flex align-items-center">
                         <div>
-                            
-                        <ShowImage imageName={item.image} height={50} nClass={'img-thumbnail'} width={50}
+
+                           { item.image ?
+                             <ShowImage imageName={item.image} height={60} nClass={'img-thumbnail'} width={60}
                          optionalImage={"https://img.freepik.com/free-vector/delivery-service-with-mask-concept_23-2148505104.jpg"}/>
+                          
+                         :
+
+                         <img src="https://img.freepik.com/free-vector/delivery-service-with-mask-concept_23-2148505104.jpg" className='img-thumbnail' alt="Displayed Image" width={60} height={60} 
+                         style={{ imageRendering: 'pixelated'}}/>
+                           } 
+
                            
+                        
                             </div>
                         <div className="flex-1 ms-3">
 
-                            <span className="badge badge-soft-success username">{item.username}</span>
-                            <h5 className="font-size-16 ml-2"><a href="#" className="text-dark">{`${item.firstname} ${item.lastname}`}</a></h5>
+                            <span className="badge badge-soft-success username text-uppercase">{item.username}</span>
+                            <h5 className="font-size-16 ml-2 text-uppercase">{`${item.firstname} ${item.lastname}`}</h5>
                             
                         </div>
                     </div>
 
-                    <div className="mt-3 d-flex justify-content-between pt-1">
-                        <p className="mb-0 text-center">
-                           100 <i className="fas fa-box font-size-15 align-middle pr-2 ml-1 text-primary"></i><br/>
-                             Commandes</p>
-                        <p className="mb-0">
-                            120<i className="fas fa-check font-size-15 align-middle pr-2 ml-1 text-primary"></i><br/>
-                             Livrées</p>
-                        <p className="mb-0">
-                            478<i className="fas fa-history alt font-size-15 align-middle pr-2 ml-1 text-primary"></i><br/>
-                            Le reste</p>
-                    </div>
+                  
 
                     <div className="mt-3 pt-1">
                         <p className="text-muted mb-0">
                             <i className="fas fa-phone-alt font-size-15 align-middle pr-2 text-primary"></i> {item.phone}
                         </p>
-                        <p className="text-muted mb-0 mt-2">
+                        <p className="text-muted mb-0 mt-0">
                             <i className="far fa-envelope-open font-size-15 align-middle pr-2 text-primary"></i> {item.email}
                         </p>
                     </div>

@@ -125,7 +125,7 @@ const ClientOrders = ({id}) => {
             <div className='row mb-3'>
               {
                 data.map(d => (
-                  <OrderCard key={d.id} col={6} item={d}/>
+                  <OrderCard key={d.id} col={4} item={d}/>
                 ))
               }
                 

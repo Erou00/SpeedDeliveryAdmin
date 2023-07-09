@@ -98,7 +98,7 @@ const ClientPacks = ({id}) => {
           <div className='row mb-3'>
             {
               data.map(pack => (
-                 <PackCard key={pack.id} item={pack} col={6}/>
+                 <PackCard key={pack.id} item={pack} col={4}/>
               ))
             }
               

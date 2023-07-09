@@ -27,7 +27,7 @@ const ConsultationCard = ({item,details}) => {
                         </div>
                         <div className="col-sm-6">
                             <div className="text-right">
-                                <button type="button" className="btn btn-danger waves-effect"><i className="fas fa-trash "></i></button>
+                                <button type="button" className="btn btn-danger waves-effect">Desactiver</button>
                             </div>
                         </div>
                     </div>
@@ -99,23 +99,28 @@ const ConsultationCard = ({item,details}) => {
                     </div>
                     
                 </div>
-                <div className="card-box">
-                        
-
-                    <Tabs>
-                        <Tab eventKey="home" title="Colis" className='py-5' >
-                            {item.id &&  <ClientPacks id={item.id}/> }
-                        </Tab>
-                        <Tab eventKey="profile" title="Commandes">
-                            {item.id && <ClientOrders id={item.id}/> } 
-                        </Tab>
-                       
-                    </Tabs>
-
-                </div>
                
             </div>
        </div>
+
+        <div className='row'>
+            <div className='col'>
+               <div className="card-box">
+            
+                    <Tabs>
+                        <Tab eventKey="home" style={{accentColor:'violet'}} title="Colis" className='py-5' >
+                            {item.id &&  <ClientPacks id={item.id}/> }
+                        </Tab>
+                        <Tab eventKey="profile" title="Commandes" color='black' >
+                            {item.id && <ClientOrders id={item.id}/> } 
+                        </Tab>
+                        
+                    </Tabs>
+    
+                </div>
+            </div>
+
+        </div>
         
     </div>
   

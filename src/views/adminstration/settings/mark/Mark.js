@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import PageTitle from '../../../../components/pageTitle/PageTitle';
 import ShowImage from '../../../../components/showImage/ShowImage';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 const Mark = () => {
   const [marks,setMarks] = useState([]);
@@ -81,29 +82,17 @@ const Mark = () => {
     return (
     <div className="container-fluid">
       <DeleteModal show={show} setShow={setShow} item={selectedmark}  deleteFunction={deletemark}/>
-      <PageTitle title={'Marques'}>
-          <Link to="create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-              <i className="fas fa-plus-circle fa-sm text-white mr-2"></i> 
-              <strong>Ajouter</strong> 
-          </Link>
-      </PageTitle>
-      <div className="card shadow mb-4">
-      <div className="card shadow mb-4">
-                          <div className="card-header py-3">
-                              <h6 className="m-0 font-weight-bold text-primary">
-                                 Nombre de résultats : ({totalAmountOfMarks})</h6>
-                          </div>
-                          <div className="card-body">
-                              <div className="table-responsive">
-
-
+     
+       <PageTitle createBtn={true} title={'Marques'}></PageTitle>
+            <DefaultCard title={`Nombre de résultats : (${totalAmountOfMarks})`}
+              createBtn={true}>
                               <div className='col-6 p-0 mb-2'>
                                 <div className='d-flex'>
                                     <input className='form-control'
                                     type="search" placeholder='Search'
                                     aria-labelledby='Search' onChange={e => setSearch(e.target.value)} />
 
-                                    <button className='btn btn-outline-success ml-2' onClick={searchHandleChange}>
+                                    <button className='btn btn-success ml-2 px-4' onClick={searchHandleChange}>
                                         Search
                                     </button>
                                 </div>
@@ -162,19 +151,18 @@ const Mark = () => {
                                       
                                   </table>
                                   
-                              </div>
+                            
                              
-   
-                              { totalPages > 1 && 
-                                  <Pagination currentPage={currentPage} 
-                                        totalPages={totalPages}
-                                        paginate={paginate} />    
-                              } 
+                                  <div className='row justify-content-centre mb-3'>
 
-                           
-                          </div>
-              </div>
-      </div>
+                                      { totalPages > 1 && 
+                                          <Pagination currentPage={currentPage} 
+                                                totalPages={totalPages}
+                                                paginate={paginate} />    
+                                      } 
+                                   </div>
+       </DefaultCard>                    
+                        
 </div>
   )
 }

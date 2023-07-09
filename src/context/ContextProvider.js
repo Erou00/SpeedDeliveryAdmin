@@ -49,6 +49,10 @@ export const ContextProvider = ({children}) => {
         }
     }
 
+    const signOut = async () => {
+      localStorage.removeItem('ACCESS_TOKEN');
+    }
+  
     return (
         <StateContext.Provider value={{
             user,
@@ -57,6 +61,7 @@ export const ContextProvider = ({children}) => {
             setUser,
             setUsername,
             setToken,
+            signOut
         }}>
     
         {children}

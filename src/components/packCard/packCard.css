@@ -44,11 +44,11 @@
     font-size: 18px;
     font-weight: bold;
     background: #fff;
-    padding: 8px 15px;
+    padding: 8px 10px;
 }
 
 .card-text {
-    padding: 4px 15px;
+    padding: 0px 10px;
     background: #fff;
     font-size: 14px;
     color: #636262;
@@ -58,7 +58,7 @@
     position: absolute;
     display: flex;
     justify-content: flex-end;
-    padding: 10px 5px;
+    padding: 6px 5px;
     width: 100%;
     background-color: #ffffff;
     color: #fff;

@@ -6,6 +6,7 @@ import { add_categorie, get_categorie_by_id, update_categorie } from '../../../.
 import { toast } from 'react-toastify';
 import { first_object_value } from '../../../../utils/functions';
 import { useNavigate, useParams } from 'react-router-dom';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -78,9 +79,11 @@ const CategorieForm = () => {
   return (
     <div className="container-fluid">
 
-        <PageTitle title={categorie.id ? `Modifier la categorie: ${categorie.name}` : 'Ajouter Nouvelle Categorie'} />
-        <div className="card shadow mb-4 p-4">
-
+<PageTitle createBtn={false} title={'Categories'}>
+    <li aria-current="page" className="breadcrumb-item active text-uppercase">{   (id)  ?  'Modifier' : 'Ajouter'}</li>
+    </PageTitle>
+    <DefaultCard title={ (id)  ?  'Modifier la categorie '+categorie.name   : `Ajouter nouvelle categorie`}
+      createBtn={false}>
         <Formik
            enableReinitialize initialStatus={categorie}
             initialValues={{
@@ -124,7 +127,7 @@ const CategorieForm = () => {
             </form>
          )}
         </Formik>
-        </div>
+       </DefaultCard>
     </div>
   )
 }

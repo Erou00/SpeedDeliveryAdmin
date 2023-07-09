@@ -4467,7 +4467,8 @@ input[type=submit].btn-block {
     margin-bottom: -1px;
     border: 1px solid transparent;
     border-top-left-radius: .35rem;
-    border-top-right-radius: .35rem
+    border-top-right-radius: .35rem;
+    color: #000;
 }
 
 .nav-tabs .nav-link:focus,

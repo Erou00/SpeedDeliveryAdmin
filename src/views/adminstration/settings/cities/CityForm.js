@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { first_object_value } from '../../../../utils/functions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { add_city, get_city_by_id } from '../../../../axios/axios_city';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 
 const DisplayingErrorMessagesSchema = Yup.object().shape({
@@ -59,7 +60,7 @@ const CityForm = () => {
         }
         })
     }else{
-        // update_City(City.id,values).then(({data}) => {
+        // update_city(city.id,values).then(({data}) => {
         //     if(data.error === false){
         //         toast.success("modifier avec succés");
         //         navigate('/dashboard/parametrage/Citys');
@@ -79,9 +80,11 @@ const CityForm = () => {
   return (
     <div className="container-fluid">
 
-        <PageTitle title={city.id ? `Modifier la City: ${city.name}` : 'Ajouter Nouvelle Ville'} />
-        <div className="card shadow mb-4 p-4">
-
+    <PageTitle createBtn={false} title={'Villes'}>
+      <li aria-current="page" className="breadcrumb-item active text-uppercase">{   (id)  ?  'Modifier' : 'Ajouter'}</li>
+    </PageTitle>
+    <DefaultCard title={ (id)  ?  'Modifier la ville '+city.name   : `Ajouter nouvelle ville`}
+    createBtn={false}>
         <Formik
            enableReinitialize initialStatus={city}
             initialValues={{
@@ -125,7 +128,7 @@ const CityForm = () => {
             </form>
          )}
         </Formik>
-        </div>
+    </DefaultCard>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { delete_model_by_id, get_models } from '../../../../axios/axios_model';
 import ShowImage from '../../../../components/showImage/ShowImage';
 import DeleteModal from '../../../../components/modal/deleteModal/DeleteModal';
 import { toast } from 'react-toastify';
+import DefaultCard from '../../../../components/cards/DefaultCard';
 
 const Model = () => {
 
@@ -63,22 +64,9 @@ const Model = () => {
   return (
     <div className="container-fluid">
         <DeleteModal show={show} setShow={setShow} item={selectedModel}  deleteFunction={deletemodel}/>
-        <PageTitle title={'Modeles'}>
-            <Link to="create" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i className="fas fa-plus-circle fa-sm text-white mr-2"></i> 
-                <strong>Ajouter</strong> 
-            </Link>
-        </PageTitle>
-
-        <div className="card shadow mb-4">
-      <div className="card shadow mb-4">
-                          <div className="card-header py-3">
-                              <h6 className="m-0 font-weight-bold text-primary">
-                                 Nombre de résultats : ({totalAmountOfModels})</h6>
-                          </div>
-                          <div className="card-body">
-                              <div className="table-responsive">
-
+        <PageTitle createBtn={true} title={'Modeles'}></PageTitle>
+            <DefaultCard title={`Nombre de résultats : (${totalAmountOfModels})`}
+              createBtn={true}>
 
                               <div className='col-6 p-0 mb-2'>
                                 <div className='d-flex'>
@@ -86,7 +74,7 @@ const Model = () => {
                                     type="search" placeholder='Search'
                                     aria-labelledby='Search' onChange={e => setSearch(e.target.value)} />
 
-                                    <button className='btn btn-outline-success ml-2' 
+                                    <button className='btn btn-success ml-2 px-4' 
                                     // onClick={searchHandleChange}
                                     >
                                         Search
@@ -149,19 +137,17 @@ const Model = () => {
                                       
                                   </table>
                                   
-                              </div>
+                            
                              
-   
+                            <div className='row justify-content-centre mb-3'>
                               { totalPages > 1 && 
                                   <Pagination currentPage={currentPage} 
                                         totalPages={totalPages}
                                         paginate={paginate} />    
                               } 
-
+                            </div>
                            
-                          </div>
-              </div>
-        </div>
+       </DefaultCard>              
     </div>
   )
 }
